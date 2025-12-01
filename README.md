@@ -1,8 +1,3 @@
-ROOTED Community — the only live production vertical (local food, vendors, events, landmarks). UI on top of ROOTED Core governance.
-
-
----
-
 ## Governance Boundaries
 
 This repository:
@@ -16,3 +11,13 @@ All governance and access control lives in:
 → https://github.com/.../rooted-platform
 
 Any change that attempts to bypass ROOTED governance is invalid by design.
+
+
+---
+
+
+ROOTED Community — the only live production vertical (local food, vendors, events, landmarks). UI on top of ROOTED Core governance.
+
+
+---
+
