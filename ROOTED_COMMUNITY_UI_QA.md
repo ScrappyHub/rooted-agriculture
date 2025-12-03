@@ -1,310 +1,282 @@
-✅ ROOTED – COMMUNITY VERTICAL
-UI FRONT-END FIXES & QA MASTER REPORT
+# ROOTED – COMMUNITY VERTICAL  
+UI FRONT-END FIXES & QA MASTER REPORT (CANONICAL)
 
-Scope: Community Layer Only
-Applies To: Web + Mobile
-Excludes: Construction, Healthcare, Emergency, Disaster, Workforce
+Scope: Community UI Layer Only  
+Applies To: Web + Mobile  
+Excludes: Construction, Healthcare, Emergency, Disaster, Workforce  
 
-1. GLOBAL UI STABILITY ISSUES (PLATFORM-WIDE)
-1.1 Navigation & Routing
+This document governs **UI correctness only**.  
+Backend authority is defined in:
 
-✅ All bottom nav icons must:
+- rooted-core  
+- rooted-platform/governance  
 
-Respect role (guest / individual / vendor / institution)
+If UI and governance conflict → governance wins.
 
-Hide locked features instead of showing broken links
+---
+
+## 1. GLOBAL UI STABILITY ISSUES (PLATFORM-WIDE)
+
+### 1.1 Navigation & Routing
+
+✅ Bottom navigation MUST:
+
+- Respect role (guest / individual / vendor / institution)
+- Hide locked features (not broken links)
+- Never expose disabled routes
 
 ⛔ No dead routes allowed
 
-✅ Back button behavior must:
+✅ Back button behavior MUST:
 
-Never break session
+- Never break session
+- Never reset Kids Mode
+- Never bypass paywalls
 
-Never reset Kids Mode
+---
 
-Never bypass paywalls
+### 1.2 Role-Based UI Gating (CRITICAL)
 
-1.2 Role-Based UI Gating (CRITICAL)
+| Role | MUST SEE | MUST NOT SEE |
+|------|----------|--------------|
+| Guest | Directory, Landmarks, Events (view) | Messaging, Posting, Analytics |
+| Individual | Feeds, Events, Landmarks | Vendor dashboards, RFQs |
+| Vendor | Vendor profile, media, events | Institutional bid screens (unless Premium+) |
+| Institution | Discovery, RFQs | Vendor analytics |
+| Kids Mode | Landmarks, Learning, Events | Messaging, Commerce, Fundraising |
 
-Verify UI responds correctly to:
-
-Role	Must See	Must NOT See
-Guest	Directory, Landmarks, Events (view)	Messaging, Posting, Analytics
-Individual	Feeds, Events, Landmarks	Vendor dashboards, RFQs
-Vendor	Vendor profile, media, events	Institutional bid screens (unless Premium+)
-Institution	Discovery, RFQs	Vendor analytics
-Kids Mode	Landmarks, Learning, Events	Messaging, Commerce, Fundraising
-
-⚠️ No UI feature may rely only on backend gating.
+⚠️ No UI feature may rely ONLY on backend gating.  
 UI must hide or gray out locked features.
 
-2. KIDS MODE – UI FIXES (HIGH PRIORITY)
-2.1 Entry & Exit
+---
 
-✅ Clear toggle flow
+## 2. KIDS MODE – UI FIXES (HIGH PRIORITY)
 
-✅ Parental PIN screen visible
+### 2.1 Entry & Exit
 
-✅ Session timeout indicator visible
+✅ Clear toggle flow  
+✅ Parental PIN screen visible  
+✅ Session timeout visible  
+❌ No silent exit allowed  
 
-❌ No silent exit allowed
+### 2.2 UI Restrictions (HARD HIDE)
 
-2.2 UI Restrictions
+Kids Mode must completely hide:
 
-Kids Mode must HIDE COMPLETELY:
+- Fundraisers
+- Donations
+- Vendor pricing
+- RFQs, Bids, Marketplaces
+- Open messaging
+- Public comments
+- Likes on adult feeds
 
-Fundraisers
+### 2.3 Kids Visual Design
 
-Donations
+- Softer color palette
+- No alert reds
+- Simplified icons
+- No numeric financial values anywhere
 
-Vendor pricing
+---
 
-RFQs, Bids, Marketplaces
+## 3. FEED UI (LIVE – REQUIRES HARDENING)
 
-Open messaging
+### 3.1 Feed Display
 
-Public comments
+✅ Correct author identity  
+✅ Feed category icon  
+✅ Image cropping correct  
+✅ Safe text overflow  
 
-Likes on adult feeds
+### 3.2 Comments & Likes
 
-2.3 Kids Visual Design
-
-Softer color palette
-
-No alert-style reds
-
-Simplified icons
-
-No numeric financial values shown anywhere
-
-3. FEED UI (CURRENTLY LIVE – NEEDS HARDENING)
-3.1 Feed Item Display
-
-✅ Proper author display (community / vendor / institution)
-
-✅ Feed category icon shown
-
-✅ Feed image cropping not distorted
-
-✅ Text overflow gracefully handled
-
-3.2 Comments & Likes
-
-User has stated:
+User directive:
 
 “I barely wanted likes and don’t really want comments.”
 
-✅ UI must now:
+✅ Comments disabled by default  
+✅ Likes allowed but NOT incentivized  
+✅ No engagement leaderboards  
+✅ No dopamine-loop animations  
 
-Disable comments by default
+---
 
-Likes allowed but not incentivized
+## 4. MAP + GEO UI PROBLEMS
 
-No engagement leaderboard
+### 4.1 Municipal Layer Leakage (CRITICAL BUG)
 
-No dopamine-loop animations
+Municipal data MUST:
 
-4. MAP + GEO UI PROBLEMS
-4.1 Municipal Layer Leakage (BUG)
+- Be ADMIN only
+- Never appear in public legend
+- Never auto-load
 
-Municipal data must:
+✅ Verify rules enforced
 
-Be ADMIN only
+### 4.2 Kids Mode Map
 
-Never visible to public map legend
+Kids Mode map MUST:
 
-Never auto-loaded
+- Hide vendors
+- Hide institutions
+- Show ONLY:
+  - Landmarks
+  - Educational events
+  - Nature zones
 
-✅ Verify:
+---
 
-Map layers respect discovery rules
+## 5. EVENT UI FIXES
 
-No ghost categories
+### 5.1 Event Creation
 
-4.2 Kids Mode Map
+✅ Clear distinction:
 
-Kids Mode map must:
+- Public events  
+- Volunteer events  
+- Kids-safe events  
 
-Hide vendors
+⛔ No pricing in Kids events  
 
-Hide institutions
+✅ Date picker:
 
-Show only:
+- Correct timezone handling  
+- Prevents past submissions  
 
-Landmarks
+### 5.2 Event Discovery
 
-Educational events
+- Filters persist on navigation
+- Kids auto-filters to kids-safe
+- Radius slider retains state
 
-Nature zones
+---
 
-5. EVENT UI FIXES
-5.1 Event Creation
+## 6. PROFILE UI ISSUES
 
-✅ Clean distinction:
+### 6.1 Community Profiles
 
-Public events
+Must show:
 
-Volunteer events
-
-Kids-safe events
-
-⛔ No pricing allowed in Kids events
-
-✅ Date picker must:
-
-Handle time zones correctly
-
-Prevent invalid past submissions
-
-5.2 Event Discovery
-
-Event filters must not reset on route change
-
-Kids Mode auto-filters to kids-safe events
-
-Location radius slider must persist state
-
-6. PROFILE UI ISSUES
-6.1 Community Profiles
-
-Must display:
-
-Name
-
-Bio
-
-Interests
-
-Public activity
+- Name
+- Bio
+- Interests
+- Public activity
 
 Must NOT show:
 
-Exact location
+- Exact location
+- Analytics
+- Vendor tools
 
-Analytics
+### 6.2 Vendor Profiles (Public)
 
-Vendor tools
+✅ Clean storefront  
+✅ Media gallery sorted  
+✅ No admin data leakage  
+✅ No analytics on public view  
 
-6.2 Vendor Profiles (Community-Facing)
+---
 
-✅ Clean public storefront view
+## 7. MEDIA + UPLOAD UI
 
-✅ Media gallery sorting
+### 7.1 Upload Flow
 
-✅ No backend admin data leaks
+✅ Confirm file type  
+✅ Confirm file size  
+✅ Confirm content type  
+✅ Show progress bar  
+⛔ No silent failures  
 
-✅ No analytics graphs on public view
+### 7.2 Media Display
 
-7. MEDIA + UPLOAD UI
-7.1 Upload Flow
+- Correct aspect ratios
+- No layout shifting
+- No autoplay in Kids Mode
 
-Must confirm:
+---
 
-File type
-
-Size limits
-
-Content type (photo/video/document)
-
-✅ Upload progress bar required
-
-⛔ No silent failures allowed
-
-7.2 Media Display
-
-Correct aspect ratios
-
-No layout jumps
-
-No autoplay video in Kids Mode
-
-8. SUPPORT + CONTACT UI
-8.1 Contact Form (CONFIRMED LIVE)
+## 8. SUPPORT + CONTACT UI
 
 ✅ Must be visible on:
 
-Desktop
+- Desktop
+- Tablet
+- Mobile
 
-Tablet
-
-Mobile
-
-⚠️ Currently suspected hidden on mobile
+⚠️ Currently suspected hidden on mobile  
 
 ✅ Required fields:
 
-Name
+- Name
+- Email
+- Message  
 
-Email
+✅ Submit confirmation toast required
 
-Message
+---
 
-✅ Confirmation toast required after submit
+## 9. PAYWALL & FEATURE GATES
 
-9. PAYWALL & FEATURE GATES
+✅ Premium buttons allowed  
+❌ Premium execution blocked without subscription  
 
-✅ Premium buttons allowed
+✅ Locked clicks must:
 
-❌ Premium function execution blocked without subscription
+- Explain restriction
+- Never crash
+- Never redirect to error
 
-✅ Locked feature click should:
+---
 
-Explain restriction
+## 10. DISCOVERY FILTERS
 
-Never hard crash
+✅ Category filters persist  
+✅ Distance filters persist  
+✅ Seasonal filters auto-apply  
+✅ Holiday overlays respect opt-in  
 
-Never redirect to error page
+---
 
-10. DISCOVERY FILTERS (COMMUNITY)
+## 11. ACCESSIBILITY (CIVIC REQUIREMENT)
 
-Category filters must persist on refresh
+✅ Text contrast  
+✅ Tap target sizing  
+✅ No hover-only gates  
+✅ Font scaling safe  
 
-Distance filters must persist through navigation
+---
 
-Seasonal filters must:
+## 12. PERFORMANCE UI
 
-Auto apply based on date
+✅ No feed infinite loaders  
+✅ No stuck skeletons  
+✅ Map tiles never block interaction  
 
-Respect holiday opt-in only
+---
 
-11. ACCESSIBILITY (REQUIRED FOR CIVIC PLATFORMS)
+## 13. COMMUNITY UI FINAL LAUNCH BLOCKERS
 
-✅ Minimum contrast for text
+☐ Kids Mode fully locked  
+☐ Municipal map leak fixed  
+☐ Support visible on mobile  
+☐ Feed comments disabled  
+☐ Event UI cleaned  
+☐ Vendor profiles safe  
+☐ Paywalls hardened  
+☐ Discovery filters stable  
 
-✅ Tap targets large enough for mobile
+---
 
-✅ No critical functionality on hover only
+## ✅ STATUS SUMMARY
 
-✅ Font scaling must not break layout
-
-12. PERFORMANCE UI ISSUES
-
-✅ No feed infinite loader lockups
-
-✅ No skeleton loaders stuck
-
-✅ Map tiles must not delay entire screen interaction
-
-13. COMMUNITY UI FINAL LAUNCH BLOCKERS
-
-These must be ✅ before public launch:
-
-☐ Kids Mode fully locked
-☐ Map municipal leak fixed
-☐ Support form mobile visible
-☐ Feed comments disabled
-☐ Event UI cleaned
-☐ Vendor profiles safe
-☐ Paywalls safe
-☐ Discovery filters stable
-
-✅ STATUS SUMMARY
-Area	Status
-Core Feed UI	⚠ Needs polish
-Kids Mode UI	⚠ Active fixes required
-Map & GEO	❌ Critical fixes required
-Events UI	⚠ Cleanup required
-Profiles	✅ Mostly stable
-Media	✅ Stable
-Support	⚠ Mobile visibility fix
-Paywalls	✅ Present but needs UX polish
+| Area | Status |
+|------|--------|
+| Core Feed UI | ⚠ Needs polish |
+| Kids Mode UI | ⚠ Active fixes |
+| Map & GEO | ❌ Critical |
+| Events UI | ⚠ Cleanup |
+| Profiles | ✅ Stable |
+| Media | ✅ Stable |
+| Support | ⚠ Mobile issue |
+| Paywalls | ✅ Needs UX polish |
