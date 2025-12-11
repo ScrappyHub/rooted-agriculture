@@ -1,90 +1,259 @@
-# ROOTED Community — Production Application
+🌱 ROOTED Agriculture — Production Application
 
-This repository powers the ONLY live, user-facing ROOTED product.
+(formerly ROOTED Community — kept stable for users, but canonically the Food & Agriculture Vertical)
 
-→ ROOTED Community  
-(Local food, vendors, events, landmarks, seasonal & cultural discovery)
+This repository powers the ONLY live, user-facing ROOTED product in the ecosystem today.
 
----
+→ ROOTED Agriculture
 
-## ✅ LIVE PRODUCTION VERTICAL
+Local food • farms • markets • vendors • events • volunteer workdays • landmarks
+Seasonal & cultural discovery • safety-governed community access
+
+✅ LIVE PRODUCTION VERTICAL
 
 This is the only ROOTED vertical that is currently:
 
-- Publicly active
-- User-facing
-- In real production use
+Publicly active
 
-All other ROOTED vertical repositories (Construction, Healthcare, Emergency, Workforce, etc.) are:
+User-facing
 
-- Documentation only
-- Planning frameworks
-- Governance and architecture references
-- NOT active products
-- NOT public launch promises
+In real production use
 
----
+Backed by enforcement from rooted-core
 
-## 🧭 Governance Boundaries
+Governed by constitutional law in rooted-platform
 
-This repository:
+All other ROOTED vertical repositories
+(Construction, Healthcare, Experiences, Arts & Culture, Workforce, Emergency, etc.) are:
 
-- ❌ Does NOT define roles, tiers, or access laws
-- ❌ Does NOT modify database schema or RLS
-- ❌ Does NOT define Kids Mode rules
-- ❌ Does NOT define sanctuary protections
-- ❌ Does NOT define admin authority
+Documentation only
 
-ALL governance and access control lives in:
+Planning frameworks
 
-→ rooted-platform  
-→ rooted-core
+Architectural & governance references
 
-Any change that attempts to bypass ROOTED governance is invalid by design.
+NOT live products
 
----
+NOT launch promises
 
-## 🔐 Source of Authority
+NOT permitted to self-define rules
 
-This application **must obey all rules defined in**:
+This vertical is the reference implementation for all future verticals.
 
-- rooted-platform/governance/
-- rooted-platform/docs/
-- rooted-core/docs/
+🧭 Governance Boundaries (IMMUTABLE)
 
-UI is never a source of authority.
-UI only reflects law — it does not create it.
+This repository cannot define or modify governance.
+It must follow, not lead, ROOTED law.
 
----
+This repo:
 
-## ✅ Allowed Work Here
+❌ Does NOT define roles
 
-- UI wiring
-- Component design
-- Mobile layouts
-- Animations
-- Accessibility
-- Performance optimization
-- Feedback-driven UX refinements
+❌ Does NOT define tiers
 
----
+❌ Does NOT change access laws
 
-## ❌ Forbidden Work Here (Without Canonical Approval)
+❌ Does NOT define Kids Mode
 
-- Schema rewrites
-- RLS loosening
-- Governance changes
-- New market classes
-- Admin power expansion
-- Kids Mode rule changes
-- Sanctuary rule changes
+❌ Does NOT modify sanctuary rules
 
----
+❌ Does NOT expand admin power
 
-ROOTED Community exists to serve trust, food, families, and local discovery.
+❌ Does NOT alter event, volunteer, or vendor safety rules
 
-It does not exist to expand power.
-It does not exist to extract data.
-It does not exist to chase growth.
+❌ Does NOT own schema or RLS
 
-Slow, governed, and human is the product.
+All governance, safety, and access control live in:
+
+rooted-platform/governance/
+
+rooted-platform/docs/
+
+rooted-core/docs/
+
+UI is not law.
+UI reflects law.
+Only governance defines authority.
+
+Any attempt to bypass canonical rules is automatically invalid.
+
+🔐 Source(s) of Authority
+
+This vertical is governed by and must obey:
+
+🎓 Platform Constitution & Laws
+
+rooted-platform/governance/ROOTED_PLATFORM_CONSTITUTION.md
+rooted-platform/governance/ROOTED_COMMUNITY_GOVERNANCE.md
+rooted-platform/governance/ROOTED_KIDS_MODE_GOVERNANCE.md
+rooted-platform/governance/ROOTED_SEASONAL_CULTURAL_INTELLIGENCE_LAW.md
+rooted-platform/governance/ROOTED_SECURITY_DISCOVERY_CONTRACT.md
+…and all other platform-level laws.
+
+⚙️ Backend Enforcement
+
+rooted-core/docs/MODERATION_SYSTEM.md
+rooted-core/docs/DISCOVERY_IMPLEMENTATION_MAP.md
+rooted-core/docs/GEO_RULES.md
+rooted-core/docs/NOTIFICATIONS_SYSTEM.md
+…and all core enforcement engines.
+
+This repo implements UI only within those constraints.
+
+✅ Allowed Work in This Repo
+
+You may perform:
+
+✔️ UI Implementation
+
+Screens
+
+Components
+
+Mobile layouts
+
+Animations
+
+Buttons, forms, dialogs
+
+✔️ UX Enhancements
+
+Accessibility
+
+Performance
+
+Page flow
+
+Navigation
+
+Visual refinements
+
+✔️ User-facing logic (non-authoritative)
+
+How data is shown
+
+Sorting / filtering UI
+
+Display formatting
+
+Map animations
+
+Seasonal UI overlays (NOT the engine)
+
+Everything must reflect, not redefine, ROOTED law.
+
+❌ Forbidden Work (Without Canonical Approval)
+
+You may NOT:
+
+❌ Modify database schema
+
+❌ Modify RLS
+
+❌ Alter provider eligibility
+
+❌ Change Kids Mode gates
+
+❌ Change teen safety ceilings
+
+❌ Add new provider classes
+
+❌ Loosen sanctuary/nonprofit protections
+
+❌ Change event, volunteer, or map safety rules
+
+❌ Introduce admin functionality not defined in governance
+
+❌ Create features that violate seasonal, cultural, or discovery laws
+
+❌ Override platform intelligence or cross-vertical logic
+
+If it's governance, it's not touched here.
+
+🌿 Purpose of This Vertical
+
+ROOTED Agriculture serves:
+
+Local farms
+
+Markets
+
+Growers
+
+Food access programs
+
+Seasonal workdays & volunteer events
+
+Safe family discovery
+
+Community-supported agriculture
+
+Farm experiences (governance-bound for youth safety)
+
+It is designed to:
+
+Connect people with local food
+
+Support small farms
+
+Strengthen community
+
+Educate youth safely
+
+Drive seasonal discovery without surveillance
+
+Provide event & volunteer access with strict safety rules
+
+ROOTED Agriculture is slow, governed, human-first, safety-enforced, and community-rooted.
+
+It does not chase growth.
+It does not extract data.
+It does not operate outside of law.
+
+📦 Repository Structure
+/architecture       — system flows, diagrams, UI maps  
+/components         — reusable UI parts  
+/pages              — all screens for the vertical  
+/styles             — CSS/tokens/themes  
+/docs               — vertical-specific documentation  
+
+🔄 Development Reality
+
+This repo is the only “live” canvas where ROOTED touches the public.
+
+Every other vertical is:
+
+In planning
+
+Under governance review
+
+Architecturally staged
+
+Not promised or scheduled for public timelines
+
+This keeps ROOTED stable, trusted, safe, and deliverable.
+
+🌱 Final Statement
+
+ROOTED Agriculture exists to:
+
+Serve people
+
+Support farms
+
+Strengthen neighborhoods
+
+Keep children safe
+
+Build local trust
+
+Reduce digital harm
+
+Build slowly, safely, and with dignity
+
+This repo is not a growth engine.
+It is a community engine.
+
+Governance is the north star.
+Safety is the gate.
+Trust is the product.
