@@ -1,4 +1,4 @@
-# 🌱 ROOTED Community — Master Handoff (UI + Backend)
+# 🌱 ROOTED Agriculture — Master Handoff (UI + Backend)
 
 Status: Only live vertical  
 Scope: ROOTED Community only  
