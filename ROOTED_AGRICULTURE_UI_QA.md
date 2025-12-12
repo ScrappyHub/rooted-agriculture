@@ -1,17 +1,18 @@
 # ROOTED – AGRICULTURE VERTICAL  
-UI FRONT-END FIXES & QA MASTER REPORT (CANONICAL)
+## UI FRONT-END FIXES & QA MASTER REPORT (CANONICAL)
 
-Scope: Agriculture + Food UI Layer Only  
-Applies To: Web + Mobile  
-Excludes: Construction, Healthcare, Emergency, Disaster, Workforce  
+Scope: **ROOTED Agriculture web + mobile UI only**  
+Excludes: Construction, Healthcare, Emergency, Disaster, Workforce (those get their own QA docs).
 
-This document governs **UI correctness only**.  
+This document governs **UI correctness only**.
+
 Backend authority is defined in:
 
-- rooted-core  
-- rooted-platform/governance  
+- `rooted-core`
+- `rooted-platform/governance`
 
 If UI and governance conflict → governance wins.
+
 
 ---
 
