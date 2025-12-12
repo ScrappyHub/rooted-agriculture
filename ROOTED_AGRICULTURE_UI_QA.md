@@ -1,7 +1,7 @@
-# ROOTED – COMMUNITY VERTICAL  
+# ROOTED – AGRICULTURE VERTICAL  
 UI FRONT-END FIXES & QA MASTER REPORT (CANONICAL)
 
-Scope: Community UI Layer Only  
+Scope: Agriculture + Food UI Layer Only  
 Applies To: Web + Mobile  
 Excludes: Construction, Healthcare, Emergency, Disaster, Workforce  
 
