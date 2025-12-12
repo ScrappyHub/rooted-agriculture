@@ -1,77 +1,97 @@
-# ROOTED Community — Application Architecture
+# ROOTED Agriculture — Application Architecture
 
-ROOTED Community is the live public-facing vertical of the ROOTED platform.
+This repository powers the **ROOTED Agriculture & Local Food vertical**.
 
-It is NOT a standalone app.
-It is a governed surface layer built on top of ROOTED Core and ROOTED Platform.
+It is **not** a standalone app.  
+It is a governed surface layer built on top of:
+
+- `rooted-platform` (governance & law)
+- `rooted-core` (database, RLS, engines)
+
+If this document and the UI disagree → this document wins.  
+If this document and ROOTED governance disagree → governance wins.
 
 ---
 
 ## 🧠 Inherited Architecture Layers
 
-This application inherits ALL enforcement from:
+ROOTED Agriculture inherits **all** platform enforcement from ROOTED Core:
 
-1. Identity & Governance Layer
-   - Auth
-   - Roles
-   - Tiers
-   - Feature Flags
+### Identity & Governance Layer
 
-2. Core Commerce Layer
-   - Providers
-   - RFQs
-   - Bids
-   - Bulk Offers
+- Auth (Supabase)
+- Roles (`community_member`, `vendor`, `institution`, `admin`)
+- Tiers (`free`, `premium`, `premium_plus`)
+- `feature_flags` based access
 
-3. Community & Intelligence Layer
-   - Events
-   - Experiences
-   - Feeds
-   - Landmarks
-   - Maps
-   - Seasonal Engine
+### Core Commerce Layer
 
-4. Safety & Consent Layer
-   - Kids Mode
-   - Cultural Controls
-   - Holiday Opt-ins
-   - Content Filtering
+- `providers`
+- `rfqs`
+- `bids`
+- `bulk_offers`
 
-5. Analytics Layer
-   - Vendor analytics
-   - Bulk analytics
-   - Engagement analytics
+### Community & Intelligence Layer
+
+- `events` (with `event_vertical = 'AGRICULTURE_FOOD'`)
+- `experiences`
+- `feed_items`, `feed_comments`, `feed_likes`
+- `landmarks`
+- Map & geo intelligence (50-mile / 25-marker rules)
+- Seasonal & cultural intelligence engine
+
+### Safety & Consent Layer
+
+- Kids Mode & Teen Mode (backend law)
+- Holiday & cultural opt-ins
+- Nonprofit & sanctuary protections
+- RLS-enforced content filtering
+
+### Analytics Layer
+
+- Vendor analytics
+- Bulk marketplace analytics
+- Engagement analytics (read-only in this repo)
 
 ---
 
 ## 🧬 Vertical Plug-in Doctrine
 
-ROOTED Community:
+ROOTED Agriculture:
 
-- Reuses the SAME core as every vertical
-- Adds only:
-  - Category sets
-  - Community-specific experiences
-  - Educational overlays
-  - Seasonal layers
-  - Discovery UI surfaces
+- Reuses the **same core** as every other vertical
+- Only adds Agriculture-specific:
+
+  - Categories & specialty groupings  
+  - Discovery filters  
+  - Seasonal overlays (harvest, planting, CSA, markets)  
+  - Educational panels & storytelling  
+  - UI maps and cards for farms, markets, sanctuaries
+
+This repo **does not** create new engines.  
+It only consumes what `rooted-core` has already defined.
 
 ---
 
 ## 🛑 Architectural Non-Negotiables
 
-- Core governance overrides all UI behavior
-- No UI route may bypass feature flags
+- Core governance overrides **all** UI behavior
+- No UI route may bypass `feature_flags`
 - No UI route may bypass RLS
 - No discovery surface may bypass backend limits
-- No Kids surface may expose adult tools
-
----
+- No Kids/Teen surface may expose adult tools
+- No UI may expose analytics or markets that the backend has not granted
 
 ROOTED behaves as:
 
-Civic OS + Discovery Engine + Safety Platform
+- Civic OS  
+- Discovery & procurement engine  
+- Safety platform  
 
-Not a social network.
-Not an ad company.
-Not a growth machine.
+It is **not**:
+
+- A social network  
+- An ad company  
+- A growth machine  
+
+---
