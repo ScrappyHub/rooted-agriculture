@@ -1,25 +1,28 @@
 # 🌱 ROOTED Agriculture — Master Handoff (UI + Backend)
 
-Status: Only live vertical  
-Scope: ROOTED Community only  
-Backend: Locked & governed via ROOTED Core  
-Remaining Work: UI, UX, QA polish only  
+Status: **Only live vertical**  
+Scope: **ROOTED Agriculture vertical only**  
+Backend: Locked & governed via `rooted-core` + `rooted-platform`  
+Remaining Work: UI, UX, QA polish only
 
-If app behavior and this document conflict → this document wins.
+If app behavior and this document conflict → this document wins.  
+If this document and ROOTED governance conflict → ROOTED governance wins.
 
 ---
 
-## 1. What ROOTED Community Is
+## 1. What ROOTED Agriculture Is
 
-Public-facing cultural + food + community layer of ROOTED.
+Public-facing **food / farms / local community** layer of ROOTED.
 
 Includes:
 
-- Farms, markets, vendors  
-- Experiences & events  
-- Landmarks & education  
-- Seasonal & cultural discovery  
+- Farms, markets, food hubs, bakeries, butchers
+- Experiences & events tied to food and agriculture
+- Landmarks & educational sites (farms, mills, orchards)
+- Seasonal & cultural discovery for food and harvest
 - Kids Education Mode (design complete, pilot OFF)
+
+...
 
 Is:
 
